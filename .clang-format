@@ -1,0 +1,10 @@
+---
+BasedOnStyle: WebKit
+BreakBeforeBraces: Allman
+Cpp11BracedListStyle: 'true'
+ColumnLimit: 100
+UseTab: Never
+AlwaysBreakTemplateDeclarations: 'true'
+ReflowComments: 'false'
+
+...
