@@ -18,3 +18,10 @@ target_link_libraries(${LIB_NAME}
     PRIVATE
     fitpack
 )
+
+install(TARGETS ${LIB_NAME}
+    EXPORT fitpackpp-targets
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}
+)
+install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include DESTINATION .)
+

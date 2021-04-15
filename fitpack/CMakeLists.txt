@@ -1,4 +1,5 @@
 enable_language(Fortran)
+set(LIB_NAME fitpack)
 
 set(SRC
   src/splev.f
@@ -14,7 +15,7 @@ set(SRC
   src/fprati.f
 )
 
-add_library(fitpack STATIC ${SRC})
+add_library(${LIB_NAME} STATIC ${SRC})
 
 include(FortranCInterface)
 FortranCInterface_HEADER(FCMangle.h
@@ -23,8 +24,13 @@ FortranCInterface_HEADER(FCMangle.h
                          SYMBOLS curfit splev)
 FortranCInterface_VERIFY(CXX)
 
-target_include_directories(fitpack
+target_include_directories(${LIB_NAME}
     PUBLIC
-    ${CMAKE_CURRENT_BINARY_DIR}
+    $<INSTALL_INTERFACE:include>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
 )
 
+install(TARGETS ${LIB_NAME}
+    EXPORT fitpackpp-targets
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}
+)
