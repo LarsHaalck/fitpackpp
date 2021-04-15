@@ -34,5 +34,8 @@
 *.app
 
 # misc
+compile_commands.json
 build*/
 install*/
+.cache/
+tags
