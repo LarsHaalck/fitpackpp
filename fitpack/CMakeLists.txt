@@ -15,6 +15,9 @@ set(SRC
   src/fprati.f
 )
 
+add_compile_options(-Wall -Wextra -pedantic)
+add_compile_options (-fdiagnostics-color=always)
+
 add_library(${LIB_NAME} STATIC ${SRC})
 
 include(FortranCInterface)
